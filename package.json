@@ -1,7 +1,7 @@
 {
-  "name": "react",
+  "name": "expense_forecast_tool",
   "version": "1.0.0",
-  "description": "React example starter project",
+  "description": "Tool to forecast how much money will stay after paying bills",
   "keywords": [
     "react",
     "starter"

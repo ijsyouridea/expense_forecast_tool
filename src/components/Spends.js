@@ -38,6 +38,7 @@ export default function Spends({ list, setList, currenciesList }) {
           <input
             style={{width:'75px'}}
             value={i.amount}
+            type='number'
             onChange={(e) =>
               setList((prev) => {
                 

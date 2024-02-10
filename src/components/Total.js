@@ -1,6 +1,5 @@
 import numberInputParser from "../utils/numberInputParser";
 
-
 export default function Total({
   total,
   setTotal,
@@ -13,6 +12,7 @@ export default function Total({
       <label style={{ width: "70px", display: "inline-block" }}>income</label>
       <input
         placeholder="income"
+        type='number'
         value={total}
         onChange={(e) => {
           setTotal(numberInputParser(e));

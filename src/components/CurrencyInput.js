@@ -6,8 +6,9 @@ export default function CurrencyInput({ name, handler, currencies }) {
       <label style={{ width: "40px", display: "inline-block" }}>{name}</label>
       <input
         placeholder={name}
-        value={currencies[name] ?? 1}
-        onChange={(e) =>
+        type='number'
+        value={+currencies[name]}
+        onInput={(e) =>
           handler((prevValue) => {
             prevValue[name] = numberInputParser(e);
             return { ...prevValue };

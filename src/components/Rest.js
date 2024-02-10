@@ -10,7 +10,7 @@ export default function Rest({ list, currencies, total, currency }) {
       if (i.currency === currency) {
         calculate -= i.amount;
       } else {
-        calculate -= i.amount * (1 / (currencies[i.currency] || 1));
+        calculate -= (i.amount||0) * (1 / (currencies[i.currency] || 1));
       }
     });
 
