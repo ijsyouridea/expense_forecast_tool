@@ -7,7 +7,7 @@ export default function CurrencyInput({ name, handler, currencies }) {
       <input
         placeholder={name}
         type='number'
-        value={+currencies[name]}
+        value={+currencies[name]||1}
         onInput={(e) =>
           handler((prevValue) => {
             prevValue[name] = numberInputParser(e);

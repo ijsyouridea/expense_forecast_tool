@@ -4,6 +4,7 @@ import Rates from "./components/Rates";
 import Total from "./components/Total";
 import Spends from "./components/Spends";
 import Rest from "./components/Rest";
+import UrlGenerator from "./components/UrlGenerator"
 
 const currenciesList = ["pln", "eur", "usd"];
 
@@ -30,6 +31,8 @@ export default function App() {
       <Rates {...{ currencies, setCurrencies, currenciesList }} />
       <Spends {...{ list, setList, currenciesList }} />
       <Rest {...{ list, currencies, total, currency }} />
+      
+      <UrlGenerator />
     </div>
   );
 }
