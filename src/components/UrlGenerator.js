@@ -1,4 +1,4 @@
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
 
 export default function UrlGenerator(){
   let [token, setToken] = useState('')
@@ -23,10 +23,15 @@ export default function UrlGenerator(){
   }
   
   
+  
   return (
     <div>
-      <div>{token}</div>
+    {token&&
+    <>
+      <textarea rows={Math.ceil(token.length/50)+1} cols="50" value={window.location.origin + '?token=' + token}></textarea>
       <div>length: {token.length}</div>
+      </>
+      }
       <button onClick={getToken}>get url</button>
     </div>
   )

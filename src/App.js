@@ -15,14 +15,28 @@ export default function App() {
   let [list, setList] = useState([]);
 
   useEffect(() => {
-    let memory = localStorage.getItem("memory");
+    (async()=>{
+    const urlParams = new URLSearchParams(window.location.search);
+    const token = urlParams.get('token');
+    let memory = null
+    if(token){
+      let r = await fetch(`https://c069c62b-a46a-4f6f-b390-1ef8be550d3b-00-p97zrh4i3cig.spock.replit.dev/verify/${token}`)
+      let d = await r.json()
+      memory = d.data
+    }else{
+      memory = localStorage.getItem("memory");
+      if(memory){
+        memory = JSON.parse(memory);
+      }
+    }
     if (memory) {
-      let { total, currency, list, currencies } = JSON.parse(memory);
+      let { total, currency, list, currencies } = memory
       setCurrencies(currencies);
       setTotal(total);
       setCurrency(currency);
       setList(list);
     }
+    })()
   }, []);
 
   return (
