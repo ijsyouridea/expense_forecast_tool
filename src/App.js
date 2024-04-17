@@ -56,6 +56,7 @@ export default function App() {
           <li>what if I open smb link and what should happen with mine data in localStorage or if not in localStorage</li>
           <li>notification in order to loose data</li>
           <li>add custom seed to the server</li>
+          <li>decide expiration time</li>
         </ol>
       </div>
     </div>
