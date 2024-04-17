@@ -2,3 +2,19 @@
   font-family: sans-serif;
   text-align: center;
 }
+.rates {
+  border: 1px solid black;
+  padding: 20px;
+  position: absolute;
+  right: 0;
+}
+@media screen and (max-width: 820px) {
+  .rates {
+    position: relative;
+    width: 200px;
+    margin: 20px auto;
+  }
+}
+li {
+  text-align: left;
+}

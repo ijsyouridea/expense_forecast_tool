@@ -3,12 +3,7 @@ import CurrencyInput from "./CurrencyInput";
 export default function Rates({ currencies, setCurrencies, currenciesList }) {
   return (
     <div
-      style={{
-        border: "1px solid black",
-        padding: "20px",
-        position: "absolute",
-        right: "0"
-      }}
+      className="rates"
     >
       {currenciesList.map((currency) => (
         <CurrencyInput
