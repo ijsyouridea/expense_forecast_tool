@@ -1,5 +1,3 @@
-import numberInputParser from "../utils/numberInputParser";
-
 export default function Spends({ list, setList, currenciesList }) {
   function add(item) {
     setList((prev) => {
@@ -38,11 +36,12 @@ export default function Spends({ list, setList, currenciesList }) {
           <input
             style={{width:'75px'}}
             value={i.amount}
-            type='number'
             onChange={(e) =>
               setList((prev) => {
-                
-                prev[k].amount = numberInputParser(e);
+                let input = e.target.value
+                let res= input.match(/[0-9\.]/g)
+                let value = res ? res.join('') : 0
+                prev[k].amount = value;
                 return [...prev];
               })
             }

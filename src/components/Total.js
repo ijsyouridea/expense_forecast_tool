@@ -1,5 +1,3 @@
-import numberInputParser from "../utils/numberInputParser";
-
 export default function Total({
   total,
   setTotal,
@@ -12,10 +10,10 @@ export default function Total({
       <label style={{ width: "70px", display: "inline-block" }}>income</label>
       <input
         placeholder="income"
-        type='number'
         value={total}
         onChange={(e) => {
-          setTotal(numberInputParser(e));
+          let value = isNaN(e.target.value) ? 0 : +e.target.value;
+          setTotal(value);
         }}
       />
       <select value={currency} onChange={(e) => setCurrency(e.target.value)}>

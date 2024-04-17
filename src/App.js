@@ -4,7 +4,6 @@ import Rates from "./components/Rates";
 import Total from "./components/Total";
 import Spends from "./components/Spends";
 import Rest from "./components/Rest";
-import UrlGenerator from "./components/UrlGenerator"
 
 const currenciesList = ["pln", "eur", "usd"];
 
@@ -15,28 +14,14 @@ export default function App() {
   let [list, setList] = useState([]);
 
   useEffect(() => {
-    (async()=>{
-    const urlParams = new URLSearchParams(window.location.search);
-    const token = urlParams.get('token');
-    let memory = null
-    if(token){
-      let r = await fetch(`https://c069c62b-a46a-4f6f-b390-1ef8be550d3b-00-p97zrh4i3cig.spock.replit.dev/verify/${token}`)
-      let d = await r.json()
-      memory = d.data
-    }else{
-      memory = localStorage.getItem("memory");
-      if(memory){
-        memory = JSON.parse(memory);
-      }
-    }
+    let memory = localStorage.getItem("memory");
     if (memory) {
-      let { total, currency, list, currencies } = memory
+      let { total, currency, list, currencies } = JSON.parse(memory);
       setCurrencies(currencies);
       setTotal(total);
       setCurrency(currency);
       setList(list);
     }
-    })()
   }, []);
 
   return (
@@ -45,19 +30,6 @@ export default function App() {
       <Rates {...{ currencies, setCurrencies, currenciesList }} />
       <Spends {...{ list, setList, currenciesList }} />
       <Rest {...{ list, currencies, total, currency }} />
-      
-      <UrlGenerator />
-      
-      
-      <div>
-        TODOs
-        <ol>
-          <li>ability to deside whether to store in localstorage or not</li>
-          <li>what if I open smb link and what should happen with mine data in localStorage or if not in localStorage</li>
-          <li>notification in order to loose data</li>
-          <li>add custom seed to the server</li>
-        </ol>
-      </div>
     </div>
   );
 }
