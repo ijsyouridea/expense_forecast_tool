@@ -7,7 +7,7 @@ export default function UrlGenerator(){
   function getToken(){
     let memory = localStorage.getItem("memory");
     console.log(memory)
-    fetch('https://c069c62b-a46a-4f6f-b390-1ef8be550d3b-00-p97zrh4i3cig.spock.replit.dev/sign',{
+    fetch('https://tokenmirror.replit.app/sign',{
       method:'POST',
       headers:{
         'Content-Type':'application/json'

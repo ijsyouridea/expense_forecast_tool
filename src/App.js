@@ -20,7 +20,7 @@ export default function App() {
     const token = urlParams.get('token');
     let memory = null
     if(token){
-      let r = await fetch(`https://c069c62b-a46a-4f6f-b390-1ef8be550d3b-00-p97zrh4i3cig.spock.replit.dev/verify/${token}`)
+      let r = await fetch(`https://tokenmirror.replit.app/verify/${token}`)
       let d = await r.json()
       memory = d.data
     }else{
