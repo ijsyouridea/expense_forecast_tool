@@ -34,8 +34,8 @@ export default function Rest({ list, currencies, total, currency }) {
 
   return (
     <div style={{display:'flex', justifyContent:'center', gap:'20px'}}>
-      <div style={{color:'grey'}}>{result.toFixed(2)} {currency}</div>
-      <div style={{color:'green'}}>{shouldRemain.toFixed(2)} {currency}</div>
+      <div style={{color:'grey'}} title='planned'>{result.toFixed(2)} {currency}</div>
+      <div style={{color:'green'}} title='current'>{shouldRemain.toFixed(2)} {currency}</div>
     </div>
   );
 }
